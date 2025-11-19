@@ -71,3 +71,6 @@ export default defineConfig([
   },
 ])
 ```
+Sources:
+- Advanced data table: https://github.com/openstatusHQ/data-table-filters
+- Shadcn layout: https://github.com/hariadiarief/react-vite-shadcn-dashboard-starter-kit/tree/main

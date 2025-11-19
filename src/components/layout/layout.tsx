@@ -1,9 +1,15 @@
-import { SidebarProvider } from "../ui/sidebar";
 import { AppSidebar } from "./app-sidebar";
 import { Navbar } from "./navbar";
+
 import { cn } from "../../lib/utils";
-import { Outlet } from "react-router";
+
+import { Button } from "../ui/button";
+import { SidebarProvider } from "../ui/sidebar";
+
 import { ModeToggle } from "../mode-toggle";
+
+import { ListCheck } from "lucide-react";
+import { Link, Outlet } from "react-router";
 
 export default function Layout() {
   return (
@@ -22,8 +28,11 @@ export default function Layout() {
         )}
       >
         <Navbar>
-          <div className="flex">
+          <div className="flex gap-2">
             <ModeToggle/>
+            <Link to='/tasks'>
+            <Button variant="outline" size="icon"><ListCheck/></Button>
+            </Link>
           </div>
         </Navbar>
         <main className="p-4">

@@ -6,6 +6,7 @@ import Clients from "@/pages/clients";
 
 import { Users } from "lucide-react";
 import type { NavGroup } from "@/components/layout/types";
+import Tasks from "@/pages/tasks";
 
 const routes = [
   {
@@ -22,6 +23,12 @@ const routes = [
             element: <Clients />
           }
         ]
+      },
+      {
+        path: '/tasks',
+        element: <Tasks />,
+        title: 'Tasks',
+        children: []
       }
     ]
   },
