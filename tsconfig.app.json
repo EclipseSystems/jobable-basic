@@ -9,13 +9,11 @@
     "skipLibCheck": true,
 
     /* Tailwind lines */
-    "compilerOptions": {
-      "baseUrl": ".",
-      "paths": {
-        "@/*": [
-          "./src/*"
-        ]
-      }
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
     },
 
     /* Bundler mode */
