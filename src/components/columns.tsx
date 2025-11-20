@@ -1,4 +1,5 @@
 import { type ColumnDef } from "@tanstack/react-table";
+import { Link } from "react-router";
 
 export type Clients = {
   id: number
@@ -7,5 +8,18 @@ export type Clients = {
 
 export const clientColumns: ColumnDef<Clients>[] = [
   {accessorKey: "id", header: "ID"},
-  {accessorKey: "name", header: "Name"}
+  {
+    accessorKey: "name",
+    header: "Name",
+    cell: ({row}) => {
+      return (
+        <div>
+          <Link to={{
+            pathname: "./details"
+          }}>
+            {row.getValue('name')}
+          </Link>
+        </div>
+      )
+    }}
 ]

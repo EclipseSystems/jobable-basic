@@ -1,13 +1,18 @@
-"use client";
+"use client"
+
+import { useState } from "react"
 
 import {
   type ColumnDef,
+  type ColumnFiltersState,
   flexRender,
   getCoreRowModel,
   getPaginationRowModel,
   useReactTable,
-} from "@tanstack/react-table";
+  getFilteredRowModel,
+} from "@tanstack/react-table"
 
+import { Input } from "./ui/input"
 import {
   Table,
   TableBody,
@@ -15,27 +20,47 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import { DataTablePagination } from "./pagination";
+} from "@/components/ui/table"
+
+import { DataTablePagination } from "./pagination"
+import { TTButton } from "./ttButton"
+
 
 interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
-  data: TData[];
+  columns: ColumnDef<TData, TValue>[]
+  data: TData[]
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-  });
+    onColumnFiltersChange: setColumnFilters,
+    state: {
+      columnFilters
+    }
+  })
 
   return (
     <>
+      <div className="flex items-center pb-4">
+        <Input
+          placeholder="Filter emails..."
+          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
+          onChange={(event) =>
+            table.getColumn("name")?.setFilterValue(event.target.value)
+          }
+          className="max-w-sm"
+        />
+      </div>
+
       <div className="overflow-hidden rounded-md border">
         <Table>
           <TableHeader>
@@ -47,11 +72,11 @@ export function DataTable<TData, TValue>({
                       {header.isPlaceholder
                         ? null
                         : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
                     </TableHead>
-                  );
+                  )
                 })}
               </TableRow>
             ))}
@@ -86,7 +111,9 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
-      <DataTablePagination table={table} />
+      <div className="pt-2">
+        <DataTablePagination table={table} />
+      </div>
     </>
-  );
+  )
 }

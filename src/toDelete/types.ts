@@ -24,4 +24,4 @@ interface NavGroup {
   children: NavItem[]
 }
 
-export type { NavCollapsible, NavGroup, NavItem, NavLink }
+export type { NavCollapsible, NavGroup, NavItem, NavLink} 

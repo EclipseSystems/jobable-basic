@@ -1,35 +1,36 @@
 import { useRoutes } from "react-router";
 
-import Layout from "@/components/layout/layout";
+import Layout from "@/components/layout/layout"
 
-import Clients from "@/pages/clients";
-
-import { Users } from "lucide-react";
-import type { NavGroup } from "@/components/layout/types";
+import Appointments from "@/pages/appointments/appointments";
+import ClientPage from "@/pages/clients/details/details";
+import Clients from "@/pages/clients/clients";
+import Dashboard from "@/pages/dashboard";
+import Forms from "@/pages/forms";
+import Reports from "@/pages/reports/reports";
+import Tasks from "@/pages/tasks";
+import Call from "@/pages/call";
+import Chat from "@/pages/chat";
+import Mail from "@/pages/mail";
 
 const routes = [
   {
     path: "/",
     element: <Layout />,
     children: [
-      {
-        title: 'Record management',
-        children: [
-          {
-            title: 'Clients',
-            path: '/clients',
-            icon: Users,
-            element: <Clients />
-          }
-        ]
-      }
+      { path: '/dashboard', element: <Dashboard /> },
+      { path: '/appointments', element: <Appointments /> },
+      { path: '/call', element: <Call /> },
+      { path: '/chat', element: <Chat /> },
+      { path: '/clients', element: <Clients /> },
+      { path: '/clients/details', element: <ClientPage /> },
+      { path: '/forms', element: <Forms /> },
+      { path: '/mail', element: <Mail/> },
+      { path: '/reports', element: <Reports /> },
+      { path: '/tasks', element: <Tasks /> }
     ]
   },
 ];
-
-export const MenuItems = (): NavGroup[] => {
-  return routes[0].children
-}
 
 export const AppRoutes = () => {
   return useRoutes(routes);

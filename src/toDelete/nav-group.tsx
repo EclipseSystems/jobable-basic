@@ -5,7 +5,7 @@ import { ChevronRight } from "lucide-react";
 
 import type { NavCollapsible, NavGroup, NavItem, NavLink } from "./types";
 
-import { Badge } from "../ui/badge";
+import { Badge } from "../components/ui/badge";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,8 +13,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger
-} from "../ui/dropdown-menu"
-import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "../ui/sidebar";
+} from "../components/ui/dropdown-menu"
+import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "../components/ui/sidebar";
 
 const NavBadge = ({ children }: { children: ReactNode }) => (
   <Badge className='rounded-full px-1 py-0 text-xs'>{children}</Badge>

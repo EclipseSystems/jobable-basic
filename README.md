@@ -11,6 +11,16 @@ Currently, two official plugins are available:
 
 The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
+## Installed
+- React 19
+- Tailwind CSS v4
+- Shadcn UI
+- React Router v7
+- Lucide icons
+- Tanstack Table
+- daisyUI
+- React-CSV
+
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
@@ -71,3 +81,7 @@ export default defineConfig([
   },
 ])
 ```
+
+Sources:
+- Advanced data table: https://github.com/openstatusHQ/data-table-filters
+- Shadcn layout: https://github.com/hariadiarief/react-vite-shadcn-dashboard-starter-kit/tree/main

@@ -1,9 +1,15 @@
-import { SidebarProvider } from "../ui/sidebar";
 import { AppSidebar } from "./app-sidebar";
 import { Navbar } from "./navbar";
+
 import { cn } from "../../lib/utils";
-import { Outlet } from "react-router";
+
+import { SidebarProvider } from "../ui/sidebar";
+
+import { TTButton } from "../ttButton";
 import { ModeToggle } from "../mode-toggle";
+
+import { Bell, CircleQuestionMark, ListCheck } from "lucide-react";
+import { Link, Outlet } from "react-router";
 
 export default function Layout() {
   return (
@@ -22,8 +28,15 @@ export default function Layout() {
         )}
       >
         <Navbar>
-          <div className="flex">
+          <div className="flex gap-2">
             <ModeToggle/>
+            <Link to={{
+              pathname: './tasks'
+            }}>
+              <TTButton title='Tasks' Icon={ListCheck} />
+            </Link>
+            <TTButton title='Notifications' Icon={Bell} />
+            <TTButton title="Help center" Icon={CircleQuestionMark} />
           </div>
         </Navbar>
         <main className="p-4">
