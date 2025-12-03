@@ -9,7 +9,7 @@ import { SidebarProvider } from "../ui/sidebar";
 import { TTButton } from "../ttButton";
 import { ModeToggle } from "../mode-toggle";
 
-import { Bell, CircleQuestionMark, ListCheck } from "lucide-react";
+import { CircleQuestionMark, ListCheck } from "lucide-react";
 import { Link, Outlet } from "react-router";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { IssueForm } from "./issue-form";
@@ -35,7 +35,6 @@ export default function Layout() {
         )}
       >
         <Navbar>
-          <div className="flex gap-2">
           <div className="flex gap-2">
             <ModeToggle/>
             <Link to={{ pathname: './tasks' }}>

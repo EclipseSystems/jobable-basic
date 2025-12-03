@@ -82,7 +82,7 @@ export function NewLead() {
       </FieldSet>
       <DialogFooter>
         <DialogClose>
-          <Button variant={'outline'}>Cancel</Button>
+          <Button variant={'secondary'}>Cancel</Button>
         </DialogClose>
         <Button>Create</Button>
       </DialogFooter>

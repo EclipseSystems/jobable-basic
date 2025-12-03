@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '../ui/dialog';
-import { Field, FieldDescription, FieldGroup, FieldLabel, FieldSet } from '../ui/field';
+import { Field, FieldGroup, FieldLabel, FieldSet } from '../ui/field';
 import { RadioGroup, RadioGroupItem } from '../ui/radio-group';
 import {
   Select,

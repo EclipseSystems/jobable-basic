@@ -1,8 +1,8 @@
 import { DataTable } from "@/components/data-table";
-import { clientColumns, type Clients } from "@/components/columns";
+import { clientColumns } from "@/components/columns";
 import { PageTitle } from "@/components/pageTitle";
 
-const clientData: Clients[] = [
+const clientData = [
   { "id": 1, "name": "Cathleen Beament" },
   { "id": 2, "name": "Merill Muckley" },
   { "id": 3, "name": "Fairlie Renyard" },

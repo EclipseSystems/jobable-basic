@@ -2,16 +2,18 @@ import { PageTitle } from "@/components/pageTitle";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import { Calendar, Clock, Notebook, User } from "lucide-react";
+import { Calendar, Clock, FileStack, Notebook, User } from "lucide-react";
 
 import { Activity } from "./activity";
 import { Appointments } from "./appointments";
 import { Notes } from "./notes";
 import { Profile } from "./profile";
+import { Files } from "./files";
 
 const tabs = [
   { value: 'Profile', element: <Profile/>, icon: User },
   { value: 'Appointments', element: <Appointments />, icon: Calendar },
+  { value: 'Files', element: <Files />, icon: FileStack },
   { value: 'Notes', element: <Notes />, icon: Notebook },
   { value: 'Activity', element: <Activity /> ,icon: Clock }
 ]

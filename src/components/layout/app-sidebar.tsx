@@ -1,3 +1,7 @@
+import { useState } from 'react'
+
+import { Link } from 'react-router'
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,14 +20,13 @@ import {
   SidebarMenuButton,
   SidebarMenuItem
 } from '../ui/sidebar'
-import { NavUser } from './nav-user'
-import { Link } from 'react-router'
+
 import { BarChart, Binoculars, Calendar, Factory, Home, ListChecks, Mail, Megaphone, MessageCircle, Phone, Plus, QrCode, Settings, Users, type LucideIcon } from 'lucide-react'
-import { useState } from 'react'
+
 import { DownloadApp } from './downloadApp'
+import { NavUser } from './nav-user'
 import { NewAppt } from './newAppt'
 import { NewLead } from './newLead'
-
 
 function SidebarMenuLink({ title, path, Icon }: {
   title: string
@@ -103,10 +106,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarGroup>
           <SidebarGroupLabel>Tools</SidebarGroupLabel>
           <SidebarMenu>
-            <SidebarMenuLink title='Chat' path='./chat' Icon={MessageCircle} />
-            <SidebarMenuLink title='Call' path='./call' Icon={Phone} />
-            <SidebarMenuLink title='Mail' path='./mail' Icon={Mail} />
-            <SidebarMenuLink title='Forms' path='./forms' Icon={ListChecks} />
+            <SidebarMenuLink title={'Chat'} path={'./chat'} Icon={MessageCircle} />
+            <SidebarMenuLink title={'Call'} path={'./call'} Icon={Phone} />
+            <SidebarMenuLink title={'Mail'} path={'./mail'} Icon={Mail} />
+            <SidebarMenuLink title={'Forms'} path={'./forms'} Icon={ListChecks} />
           </SidebarMenu>
         </SidebarGroup>
 

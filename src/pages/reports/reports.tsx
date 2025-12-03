@@ -65,7 +65,31 @@ export default function Reports() {
 
       <div className="flex gap-2 pb-4">
         <TTButton title={"New report"} Icon={Plus} />
-        <TTButton title={"New folder"} Icon={Folder} />
+        <Dialog>
+          <DialogTrigger>
+            <TTButton title={"New folder"} Icon={Folder} />
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Create new folder</DialogTitle>
+            </DialogHeader>
+            <FieldSet>
+              <FieldGroup>
+                <Field>
+                  <FieldLabel htmlFor={'folderName'}>Folder name</FieldLabel>
+                  <Input type={'text'}/>
+                </Field>
+              </FieldGroup>
+            </FieldSet>
+            <DialogFooter>
+              <DialogClose>
+                <Button variant={'secondary'}>Cancel</Button>
+              </DialogClose>
+              <Button>Submit</Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+        
       </div>
 
       <div className="grid grid-cols-4 border rounded-lg size-full">
@@ -98,7 +122,7 @@ export default function Reports() {
                   </FieldGroup>
                 </FieldSet>
                 <DialogFooter>
-                  <DialogClose><Button variant={"outline"}>Cancel</Button></DialogClose>
+                  <DialogClose><Button variant={'secondary'}>Cancel</Button></DialogClose>
                   <Button type={"submit"}>Submit</Button>
                 </DialogFooter>
               </DialogContent>

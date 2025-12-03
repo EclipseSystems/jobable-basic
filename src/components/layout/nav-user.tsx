@@ -13,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar"
+import { Link } from "react-router"
 
 export function NavUser({
   user,
@@ -65,10 +66,12 @@ export function NavUser({
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <Settings/>
-                Profile settings
-              </DropdownMenuItem>
+              <Link to={{ pathname: './profile' }}>
+                <DropdownMenuItem>
+                  <Settings />
+                  Profile settings
+                </DropdownMenuItem>
+              </Link>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
