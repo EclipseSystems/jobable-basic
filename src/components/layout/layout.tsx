@@ -1,6 +1,7 @@
 import { AppSidebar } from "./app-sidebar";
 import { Navbar } from "./navbar";
 
+
 import { cn } from "../../lib/utils";
 
 import { SidebarProvider } from "../ui/sidebar";
@@ -34,6 +35,7 @@ export default function Layout() {
         )}
       >
         <Navbar>
+          <div className="flex gap-2">
           <div className="flex gap-2">
             <ModeToggle/>
             <Link to={{ pathname: './tasks' }}>
