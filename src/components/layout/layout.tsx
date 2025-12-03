@@ -10,8 +10,14 @@ import { ModeToggle } from "../mode-toggle";
 
 import { Bell, CircleQuestionMark, ListCheck } from "lucide-react";
 import { Link, Outlet } from "react-router";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu";
+import { IssueForm } from "./issue-form";
+import { useState } from "react";
+import { Notifications } from "./notifications";
 
 export default function Layout() {
+  const [showIssueForm, setShowIssueForm] = useState(false)
+  
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -30,19 +36,29 @@ export default function Layout() {
         <Navbar>
           <div className="flex gap-2">
             <ModeToggle/>
-            <Link to={{
-              pathname: './tasks'
-            }}>
+            <Link to={{ pathname: './tasks' }}>
               <TTButton title='Tasks' Icon={ListCheck} />
             </Link>
-            <TTButton title='Notifications' Icon={Bell} />
-            <TTButton title="Help center" Icon={CircleQuestionMark} />
+            <Notifications />
+
+            {/* Help center */}
+            <DropdownMenu modal={false}>
+              <DropdownMenuTrigger>
+                <TTButton title="Help center" Icon={CircleQuestionMark} />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>Product roadmap</DropdownMenuItem>
+                <DropdownMenuItem onSelect={() => setShowIssueForm(true)}>Report an issue</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
           </div>
         </Navbar>
         <main className="p-4">
           <Outlet />
         </main>
       </div>
+      <IssueForm formOpen={showIssueForm} formOpenChange={setShowIssueForm} />
     </SidebarProvider>
   );
 }

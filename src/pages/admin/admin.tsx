@@ -1,25 +1,22 @@
-import { PageTitle } from "@/components/pageTitle";
+import { PageTitle } from "@/components/pageTitle"
+import { Billing } from "./tabs/billing"
+import { Storage } from "./tabs/storage"
+import { UserManagement } from "./tabs/users"
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-import { Calendar, Clock, Notebook, User } from "lucide-react";
-
-import { Activity } from "./activity";
-import { Appointments } from "./appointments";
-import { Notes } from "./notes";
-import { Profile } from "./profile";
+import { Box, DollarSign, Users } from "lucide-react"
 
 const tabs = [
-  { value: 'Profile', element: <Profile/>, icon: User },
-  { value: 'Appointments', element: <Appointments />, icon: Calendar },
-  { value: 'Notes', element: <Notes />, icon: Notebook },
-  { value: 'Activity', element: <Activity /> ,icon: Clock }
+  { name: 'Users', value: 'users', element: UserManagement, icon: Users },
+  { name: 'Billing', value: 'billing', element: Billing, icon: DollarSign },
+  { name: 'Storage', value: 'storage', element: Storage, icon: Box }
 ]
 
-export default function ClientPage() {
+export default function Admin() {
   return (
     <>
-      <PageTitle title={'Details'} padding={false} />
+      <PageTitle title={'Admin portal'} padding={true} />
       <Tabs
         defaultValue={tabs[0].value}
         orientation="vertical"
@@ -32,19 +29,18 @@ export default function ClientPage() {
               value={item.value}
               className="rounded-none first:rounded-t-md last:rounded-b-md bg-background h-10 w-50 p-0 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
             >
-              <item.icon /> {item.value}
+              <item.icon /> {item.name}
             </TabsTrigger>
           ))}
         </TabsList>
         <div className="w-full h-full border rounded-lg p-6">
           {tabs.map((item) => (
             <TabsContent value={item.value}>
-              <h1 className="text-xl font-bold pb-4">{item.value}</h1>
-              {item.element}
+              <item.element />
             </TabsContent>
           ))}
         </div>
       </Tabs>
     </>
-  );
+  )
 }

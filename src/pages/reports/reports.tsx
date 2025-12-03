@@ -61,7 +61,7 @@ const ReportTitle = ({ title }: {
 export default function Reports() {
   return (
     <>
-      <PageTitle title={'Reports'} />
+      <PageTitle title={'Reports'} padding={false} />
 
       <div className="flex gap-2 pb-4">
         <TTButton title={"New report"} Icon={Plus} />

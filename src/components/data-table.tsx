@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, type JSX } from "react"
 
 import {
   type ColumnDef,
@@ -22,16 +22,15 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
+import { DataTableViewOptions } from "./column-selector"
 import { DataTablePagination } from "./pagination"
-import { TTButton } from "./ttButton"
-
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
 }
 
-export function DataTable<TData, TValue>({
+export function DataTable<TData, TValue> ({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
@@ -59,8 +58,8 @@ export function DataTable<TData, TValue>({
           }
           className="max-w-sm"
         />
+        <DataTableViewOptions table={table} />
       </div>
-
       <div className="overflow-hidden rounded-md border">
         <Table>
           <TableHeader>

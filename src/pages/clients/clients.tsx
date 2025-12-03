@@ -23,7 +23,7 @@ export interface clientPost {
 export default function Clients() {
   return (
     <>
-      <PageTitle title={'Clients'} />
+      <PageTitle title={'Clients'} padding={false} />
       <DataTable columns={clientColumns} data={clientData} />
     </>
   );

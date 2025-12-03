@@ -3,7 +3,7 @@ import { PageTitle } from "@/components/pageTitle";
 export default function Dashboard() {
   return (
     <>
-      <PageTitle title={'Dashboard'} />
+      <PageTitle title={'Dashboard'} padding={false} />
     </>
   );
 }
