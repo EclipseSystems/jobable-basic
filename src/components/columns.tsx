@@ -10,7 +10,12 @@ export const apptColumns: ColumnDef<{
   method: string
 }>[] = [
   { accessorKey: "id", header: "ID" },
-  { accessorKey: "name", header: "Name" },
+  { accessorKey: "name",
+    header: "Name",
+    cell: ({row}) => {
+      return <div><Link to={{pathname: "./details"}}>{row.getValue('name')}</Link></div>
+    }
+  },
   { accessorKey: "date", header: "Date" },
   { accessorKey: "startTime", header: "Start time"},
   { accessorKey: "endTime", header: "End time"},

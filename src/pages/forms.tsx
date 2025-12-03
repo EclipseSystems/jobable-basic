@@ -36,11 +36,12 @@ export default function Forms() {
   return (
     <>
       <PageTitle title={'Forms'} padding={false} />
-      <ScrollArea className="h-full w-full">
+      <ScrollArea className="h-180 w-full">
         <div className={'grid grid-cols-5 gap-2'}>
           <div className={'col-span-1'}>
             <FieldPalette />
           </div>
+          
           <div className={'col-span-2'}>
             <FormCanvas
               fields={fields}

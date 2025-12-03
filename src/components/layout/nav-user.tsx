@@ -74,10 +74,12 @@ export function NavUser({
               </Link>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <LogOut />
-              Log out
-            </DropdownMenuItem>
+            <Link to={{ pathname: './login' }}>
+              <DropdownMenuItem>
+                <LogOut />
+                Log out
+              </DropdownMenuItem>
+            </Link>
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>

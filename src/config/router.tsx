@@ -4,6 +4,7 @@ import Layout from "@/components/layout/layout"
 
 import Admin from "@/pages/admin/admin"
 import Appointments from "@/pages/appointments/appointments"
+import ApptPage from "@/pages/appointments/details/appt-detail"
 import Call from "@/pages/call"
 import Chat from "@/pages/chat"
 import ClientPage from "@/pages/clients/details/details"
@@ -17,6 +18,7 @@ import Organisations from "@/pages/organisations/organisations"
 import Reports from "@/pages/reports/reports"
 import Tasks from "@/pages/tasks"
 import UserProfile from "@/pages/profile"
+import Login from "@/pages/login"
 
 const routes = [
   {
@@ -26,6 +28,7 @@ const routes = [
       { path: '/dashboard', element: <Dashboard /> },
       { path: '/admin', element: <Admin /> },
       { path: '/appointments', element: <Appointments /> },
+      { path: '/appointments/details', element: <ApptPage /> },
       { path: '/call', element: <Call /> },
       { path: '/chat', element: <Chat /> },
       { path: '/clients', element: <Clients /> },
@@ -40,6 +43,10 @@ const routes = [
       { path: '/tasks', element: <Tasks /> }
     ]
   },
+  {
+    path: "/login",
+    element: <Login />
+  }
 ]
 
 export const AppRoutes = () => {
