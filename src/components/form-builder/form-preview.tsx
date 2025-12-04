@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button"
 import type { FormField } from '@/config/form.types'
 
 interface FormPreviewProps {
@@ -6,8 +7,8 @@ interface FormPreviewProps {
 
 export function FormPreview({ fields }: FormPreviewProps) {
   const renderField = (field: FormField) => {
-    const baseClasses = 'w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500';
-    const labelClasses = 'block text-sm font-medium text-gray-700 mb-1';
+    const baseClasses = 'w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500';
+    const labelClasses = 'block text-sm font-medium text-muted-foreground mb-1';
 
     switch (field.type) {
       case 'text':
@@ -108,19 +109,14 @@ export function FormPreview({ fields }: FormPreviewProps) {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-      <h2 className="text-lg font-semibold mb-4 text-gray-800">Form Preview</h2>
+    <div className="bg-background rounded-lg shadow-sm border p-6">
+      <h2 className="text-lg font-semibold mb-4">Form Preview</h2>
       {fields.length === 0 ? (
-        <p className="text-sm text-gray-500 text-center py-8">Add fields to see the preview</p>
+        <p className="text-sm text-muted-foreground text-center py-8">Add fields to see the preview</p>
       ) : (
         <form onSubmit={(e) => e.preventDefault()} className="space-y-1">
           {fields.map((field) => renderField(field))}
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors font-medium mt-6"
-          >
-            Submit
-          </button>
+          <Button type="submit" className="w-full py-2 px-4 rounded-md font-medium mt-6">Submit</Button>
         </form>
       )}
     </div>

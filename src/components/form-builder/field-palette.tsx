@@ -34,18 +34,18 @@ export function FieldPalette() {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
-      <h2 className="text-lg font-semibold mb-4 text-gray-800">Form fields</h2>
+    <div className="bg-background rounded-lg shadow-sm border p-4">
+      <h2 className="text-lg font-semibold mb-4">Form fields</h2>
       <div className="space-y-2">
         {fieldOptions.map((field) => (
           <div
             key={field.type}
             draggable
             onDragStart={(e) => handleDragStart(e, field.type)}
-            className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200 cursor-move hover:bg-blue-50 hover:border-blue-300 transition-colors"
+            className="flex items-center gap-3 p-3 rounded-lg border cursor-move hover:bg-accent hover:border-accent-foreground transition-colors"
           >
-            <div className="text-gray-600">{field.icon}</div>
-            <span className="text-sm font-medium text-gray-700">{field.label}</span>
+            <div>{field.icon}</div>
+            <span className="text-sm font-medium">{field.label}</span>
           </div>
         ))}
       </div>

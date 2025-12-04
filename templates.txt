@@ -1,0 +1,29 @@
+EXTERNAL LINKS:
+- React hooks for arrays: https://react.dev/learn/updating-arrays-in-state#inserting-into-an-array
+
+* * *
+
+GET THEME SETTINGS:
+- useTheme().theme
+
+* * *
+
+CHECKBOX:
+    const [value, setValue] = useState(false)
+    function handleSetValue(value: boolean) {
+      setValue(value)
+    }
+
+    return <Checkbox checked={value} onCheckedChange={handleSetValue} />
+
+* * *
+
+BUTTON:
+    const [value, setValue] = useState(false)
+    const handleClick = () => {setValue(value ? false : true)}
+
+    return (
+      <Button onClick={handleClick}>
+        {enableDash ? true : false}
+      </Button>
+    )

@@ -21,8 +21,9 @@ import {
   SidebarMenuItem
 } from '../ui/sidebar'
 
-import { BarChart, Binoculars, Calendar, Factory, Home, ListChecks, Mail, Megaphone, MessageCircle, Phone, Plus, QrCode, Settings, Users, type LucideIcon } from 'lucide-react'
+import { BarChart, Binoculars, Calendar, Factory, Home, ListChecks, Mail, Megaphone, MessageCircle, Phone, Plus, Settings, Users, type LucideIcon } from 'lucide-react'
 
+import DashboardLogo from '@/assets/epic_logo.jpg'
 import { DownloadApp } from './downloadApp'
 import { NavUser } from './nav-user'
 import { NewAppt } from './newAppt'
@@ -59,7 +60,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar collapsible='icon' side='left' variant='floating' {...props}>
+
       <SidebarHeader>
+        <img className={'p-2'} width='70' src={DashboardLogo} />
+
+        {/* New item menu */}
         <DropdownMenu modal={false}>
           <DropdownMenuTrigger>
             <SidebarMenuButton tooltip={'New item'}>
@@ -80,6 +85,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <NewLead />
         </Dialog>
       </SidebarHeader>
+
       <SidebarContent>
 
         {/* Add links here */}

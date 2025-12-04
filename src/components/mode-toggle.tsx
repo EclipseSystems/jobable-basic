@@ -3,8 +3,8 @@ import { Moon, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuTrigger,
 } from "../components/ui/dropdown-menu"
 import { useTheme } from "@/context/theme-provider"
@@ -22,15 +22,15 @@ export function ModeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
+        <DropdownMenuCheckboxItem checked={useTheme().theme === 'light'} onClick={() => setTheme("light")}>
           Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem checked={useTheme().theme === 'dark'} onClick={() => setTheme("dark")}>
           Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
+        </DropdownMenuCheckboxItem>
+        <DropdownMenuCheckboxItem checked={useTheme().theme === 'system'} onClick={() => setTheme("system")}>
           System
-        </DropdownMenuItem>
+        </DropdownMenuCheckboxItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )

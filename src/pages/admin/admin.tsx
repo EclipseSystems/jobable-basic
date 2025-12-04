@@ -1,16 +1,23 @@
 import { PageTitle } from "@/components/pageTitle"
+
 import { Billing } from "./tabs/billing"
+import { Branding } from "./tabs/branding"
 import { Storage } from "./tabs/storage"
+import { Templates } from "./tabs/templates"
 import { UserManagement } from "./tabs/users"
+import { Workflows } from "./tabs/workflows"
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-import { Box, DollarSign, Users } from "lucide-react"
+import { Box, DollarSign, Flag, LayoutTemplate, Users, Workflow } from "lucide-react"
 
 const tabs = [
+  { name: 'Branding', value: 'branding', element: Branding, icon: Flag},
   { name: 'Users', value: 'users', element: UserManagement, icon: Users },
   { name: 'Billing', value: 'billing', element: Billing, icon: DollarSign },
-  { name: 'Storage', value: 'storage', element: Storage, icon: Box }
+  { name: 'Storage', value: 'storage', element: Storage, icon: Box },
+  { name: 'Templates', value: 'templates', element: Templates, icon: LayoutTemplate },
+  { name: 'Workflows', value: 'workflows', element: Workflows, icon: Workflow }
 ]
 
 export default function Admin() {

@@ -43,14 +43,18 @@ export function AddTask() {
 						<FieldGroup>
 
 							{/* Task name */}
+							<Field><FieldLabel htmlFor={'name'}>Task name</FieldLabel><Input type={'text'} /></Field>
+							<Field><FieldLabel htmlFor={'description'}>Task description</FieldLabel><Textarea /></Field>
 							<Field>
-								<FieldLabel htmlFor={'name'}>Task name</FieldLabel>
-								<Input type={'text'} />
-							</Field>
-
-							<Field>
-								<FieldLabel htmlFor={'description'}>Task description</FieldLabel>
-								<Textarea />
+								<FieldLabel htmlFor={'column'}>Column</FieldLabel>
+								<Select>
+									<SelectTrigger><SelectValue placeholder="Select a column..." /></SelectTrigger>
+									<SelectContent>
+										<SelectItem value={'backlog'}>Backlog</SelectItem>
+										<SelectItem value={'inProgress'}>In progress</SelectItem>
+										<SelectItem value={'done'}>Done</SelectItem>
+									</SelectContent>
+								</Select>
 							</Field>
 
 							{/* Priority */}
@@ -85,10 +89,8 @@ export function AddTask() {
 							</Field>
 
 							{/* Due date */}
-							<Field>
-								<FieldLabel htmlFor={'dueDate'}>Due date</FieldLabel>
-								<Input type={'date'} />
-							</Field>
+							<Field><FieldLabel htmlFor={'dueDate'}>Due date</FieldLabel><Input type={'date'} /></Field>
+
 						</FieldGroup>
 					</FieldSet>
 					<DialogFooter>

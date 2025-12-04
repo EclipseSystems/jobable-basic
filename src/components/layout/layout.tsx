@@ -47,7 +47,8 @@ export default function Layout() {
               <DropdownMenuTrigger>
                 <TTButton title="Help center" Icon={CircleQuestionMark} />
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
+              <DropdownMenuContent align={'start'} className={'w-40'}>
+                <DropdownMenuItem>Help guide</DropdownMenuItem>
                 <DropdownMenuItem>Product roadmap</DropdownMenuItem>
                 <DropdownMenuItem onSelect={() => setShowIssueForm(true)}>Report an issue</DropdownMenuItem>
               </DropdownMenuContent>
