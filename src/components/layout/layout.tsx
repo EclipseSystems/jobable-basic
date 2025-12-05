@@ -1,24 +1,34 @@
-import { AppSidebar } from "./app-sidebar";
-import { Navbar } from "./navbar";
-
+import { useState } from "react";
 
 import { cn } from "../../lib/utils";
+import { Link, Outlet, useLocation } from "react-router";
 
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+  BreadcrumbEllipsis,
+} from "@/components/ui/breadcrumb"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { SidebarProvider } from "../ui/sidebar";
 
-import { TTButton } from "../ttButton";
+import { AppSidebar } from "./app-sidebar";
+import { IssueForm } from "./issue-form";
 import { ModeToggle } from "../mode-toggle";
+import { Navbar } from "./navbar";
+import { Notifications } from "./notifications";
+import { TTButton } from "../ttButton";
 
 import { CircleQuestionMark, ListCheck } from "lucide-react";
-import { Link, Outlet } from "react-router";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu";
-import { IssueForm } from "./issue-form";
-import { useState } from "react";
-import { Notifications } from "./notifications";
 
 export default function Layout() {
+  let currentPage = useLocation()
+
   const [showIssueForm, setShowIssueForm] = useState(false)
-  
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -35,11 +45,32 @@ export default function Layout() {
         )}
       >
         <Navbar>
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/dashboard">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{currentPage.pathname}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+
           <div className="flex gap-2">
-            <ModeToggle/>
+            {/* Theme toggle */}
+            <ModeToggle />
+
+            {/* Tasks */}
             <Link to={{ pathname: './tasks' }}>
               <TTButton title='Tasks' Icon={ListCheck} />
             </Link>
+
+            {/* Notifications */}
             <Notifications />
 
             {/* Help center */}
@@ -53,7 +84,7 @@ export default function Layout() {
                 <DropdownMenuItem onSelect={() => setShowIssueForm(true)}>Report an issue</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            
+
           </div>
         </Navbar>
         <main className="p-4">

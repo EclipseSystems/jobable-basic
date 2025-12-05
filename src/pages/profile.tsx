@@ -41,7 +41,7 @@ export default function UserProfile() {
 						<FieldSet>
 							<FieldGroup>
 								<Field>
-									<FieldLabel htmlFor={''}>Time zone</FieldLabel>
+									<FieldLabel htmlFor={'timeZone'}>Time zone</FieldLabel>
 									<Select>
 										<SelectTrigger><SelectValue placeholder="Select a time zone..." /></SelectTrigger>
 										<SelectContent>
