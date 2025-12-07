@@ -3,7 +3,7 @@ import { PageTitle } from "@/components/pageTitle"
 import { orgColumns } from "@/components/columns";
 
 const orgData = [
-  { id: 1, abn: '63 946 234 656', name: 'EPIC Assist', city: 'Nundah' }
+  { id: 1, abn: '63 946 234 656', name: 'EPIC Assist', city: 'Nundah', state: 'QLD', postcode: '4012', mContact: 'Dean Graham' }
 ]
 
 export default function Organisations() {

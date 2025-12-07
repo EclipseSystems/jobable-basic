@@ -2,26 +2,11 @@ import { useState } from 'react'
 
 import { Link } from 'react-router'
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger
-} from '../ui/dropdown-menu'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../ui/dropdown-menu'
 import { Dialog } from '../ui/dialog'
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarGroup,
-  SidebarGroupLabel,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem
-} from '../ui/sidebar'
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '../ui/sidebar'
 
-import { BarChart, Binoculars, Calendar, Factory, Home, ListChecks, Mail, Megaphone, MessageCircle, Phone, Plus, Settings, Users, type LucideIcon } from 'lucide-react'
+import { BarChart, Binoculars, Calendar, Globe, Home, ListChecks, Mail, Megaphone, MessageCircle, Phone, Plus, Settings, User, Users, type LucideIcon } from 'lucide-react'
 
 import DashboardLogo from '@/assets/epic_logo.jpg'
 import { DownloadApp } from './downloadApp'
@@ -36,10 +21,7 @@ function SidebarMenuLink({ title, path, Icon }: {
 }) {
   return (
     <SidebarMenuItem>
-      <SidebarMenuButton
-        asChild
-        tooltip={title}
-      >
+      <SidebarMenuButton asChild tooltip={title}>
         <Link to={path}>
           <Icon />{title}
         </Link>
@@ -60,7 +42,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar collapsible='icon' side='left' variant='floating' {...props}>
-
       <SidebarHeader>
         <img className={'p-2'} width='70' src={DashboardLogo} />
 
@@ -73,17 +54,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
-            <DropdownMenuItem onSelect={() => setShowNewAppt(true)}>New appointment</DropdownMenuItem>
-            <DropdownMenuItem>New client</DropdownMenuItem>
-            <DropdownMenuItem onSelect={() => setShowNewLead(true)}>New lead</DropdownMenuItem>
+            <DropdownMenuItem onSelect={() => setShowNewAppt(true)}><Calendar />New appointment</DropdownMenuItem>
+            <DropdownMenuItem><User />New client</DropdownMenuItem>
+            <DropdownMenuItem><Megaphone />New contact</DropdownMenuItem>
+            <DropdownMenuItem onSelect={() => setShowNewLead(true)}><Binoculars />New lead</DropdownMenuItem>
+            <DropdownMenuItem><Globe />New organisation</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        <Dialog open={showNewAppt} onOpenChange={setShowNewAppt}>
-          <NewAppt />
-        </Dialog>
-        <Dialog open={showNewLead} onOpenChange={setShowNewLead}>
-          <NewLead />
-        </Dialog>
+        <Dialog open={showNewAppt} onOpenChange={setShowNewAppt}><NewAppt /></Dialog>
+        <Dialog open={showNewLead} onOpenChange={setShowNewLead}><NewLead /></Dialog>
       </SidebarHeader>
 
       <SidebarContent>
@@ -103,7 +82,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenuLink title={'Appointments'} path={'./appointments'} Icon={Calendar} />
             <SidebarMenuLink title={'Leads'} path={'./leads'} Icon={Binoculars} />
             <SidebarMenuLink title={'Contacts'} path={'./contacts'} Icon={Megaphone} />
-            <SidebarMenuLink title={'Organisations'} path={'./organisations'} Icon={Factory} />
+            <SidebarMenuLink title={'Organisations'} path={'./organisations'} Icon={Globe} />
             <SidebarMenuLink title={'Reports'} path={'./reports'} Icon={BarChart} />
           </SidebarMenu>
         </SidebarGroup>

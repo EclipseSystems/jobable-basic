@@ -4,8 +4,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { apptColumns } from "@/components/columns"
 
 const apptData = [
-  { id: 1, name: 'John Smith', date: '2/12/2025', startTime: '1:00 PM', endTime: '2:00 PM', method: 'Phone' },
-  { id: 2, name: 'Edward Norton', date: '3/12/2025', startTime: '9:00 AM', endTime: '10:00 AM', method: 'Face-to-face' }
+  { id: 1, name: 'John Smith', date: '2/12/2025', startTime: '1:00 PM', endTime: '2:00 PM', method: 'Phone', result: 'ATT' },
+  { id: 2, name: 'Edward Norton', date: '3/12/2025', startTime: '9:00 AM', endTime: '10:00 AM', method: 'Face-to-face', result: 'DNA' }
 ]
 
 const tabs = [
@@ -16,7 +16,7 @@ const tabs = [
 export default function Appointments() {
   return (
     <>
-      <PageTitle title={'Appointments'} padding={true}/>
+      <PageTitle title={'Appointments'} padding={true} />
       <Tabs defaultValue={tabs[0].value} className={'size-full'}>
 
         <TabsList className={'p-0 mb-2 h-10 w-50 bg-background gap-1'}>

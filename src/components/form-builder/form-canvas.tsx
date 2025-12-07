@@ -57,10 +57,10 @@ export function FormCanvas({ fields, onAddField, onUpdateField, onRemoveField, o
     <div
       onDragOver={handleDragOver}
       onDrop={handleDrop}
-      className="bg-white rounded-lg shadow-sm border-2 border-dashed border-gray-300 p-6 min-h-[500px] transition-colors hover:border-blue-400"
+      className="bg-background rounded-lg shadow-sm border border-dashed border-muted-foreground p-6 min-h-[500px] transition-colors hover:border-blue-400"
     >
       <div className="mb-4">
-        <h2 className="text-lg font-semibold text-gray-800">Form Builder</h2>
+        <h2 className="text-lg font-semibold">Form builder</h2>
         <p className="text-sm text-gray-500 mt-1">Drag fields from the left panel to build your form</p>
       </div>
 

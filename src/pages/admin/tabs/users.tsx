@@ -24,7 +24,9 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 import { ChevronDown, Ellipsis, Lock, Pencil, Plus, Trash, TriangleAlertIcon } from "lucide-react"
+import NewUser from "@/components/layout/newUser"
 
+const tabs = [{name: 'Users', value: 'users'},{name: 'Roles', value: 'roles'},{name: 'Teams', value: 'teams'}]
 const users = [
   { name: 'Isaac Nicol', role: 'Administrator', status: 'Active' },
   { name: 'Jess Marallag', role: 'Administrator', status: 'Active' },
@@ -43,22 +45,18 @@ export function UserManagement() {
 
           {/* Tabs list */}
           <TabsList className='bg-background gap-2 p-0'>
-            <TabsTrigger value={'users'} className={'data-[state=active]:border-border data-[state=active]:shadow-none px-6 py-4'}>
-              Users
-            </TabsTrigger>
-            <TabsTrigger value={'roles'} className={'data-[state=active]:border-border data-[state=active]:shadow-none px-6 py-4'}>
-              Roles
-            </TabsTrigger>
-            <TabsTrigger value={'teams'} className={'data-[state=active]:border-border data-[state=active]:shadow-none px-6 py-4'}>
-              Teams
-            </TabsTrigger>
+            {tabs.map((tab) => (
+              <TabsTrigger value={tab.value} className={'data-[state=active]:border-border data-[state=active]:shadow-none px-6 py-4'}>
+                {tab.name}
+              </TabsTrigger>
+            ))}
           </TabsList>
 
           {/* Users tab */}
-          <TabsContent value={'users'}>
+          <TabsContent value={tabs[0].value}>
             <div className={'grid space-y-4'}>
               <div className="flex gap-2">
-                <Button><Plus /> Create user</Button>
+                <NewUser/>
                 <DropdownMenu>
                   <DropdownMenuTrigger>
                     <Button variant={'outline'}>Bulk actions <ChevronDown /></Button>

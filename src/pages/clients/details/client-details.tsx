@@ -18,7 +18,7 @@ const tabs = [
   { value: 'Activity', element: <Activity /> ,icon: Clock }
 ]
 
-export default function ClientPage() {
+export default function ClientDetails() {
   return (
     <>
       <PageTitle title={'Details'} padding={false} />

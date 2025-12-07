@@ -21,12 +21,7 @@ export function FormPreview({ fields }: FormPreviewProps) {
               {field.label}
               {field.required && <span className="text-red-500 ml-1">*</span>}
             </label>
-            <input
-              type={field.type}
-              placeholder={field.placeholder}
-              required={field.required}
-              className={baseClasses}
-            />
+            <input type={field.type} placeholder={field.placeholder} required={field.required} className={baseClasses}/>
           </div>
         );
 
@@ -37,12 +32,7 @@ export function FormPreview({ fields }: FormPreviewProps) {
               {field.label}
               {field.required && <span className="text-red-500 ml-1">*</span>}
             </label>
-            <textarea
-              placeholder={field.placeholder}
-              required={field.required}
-              rows={4}
-              className={baseClasses}
-            />
+            <textarea placeholder={field.placeholder} required={field.required} rows={4} className={baseClasses}/>
           </div>
         );
 
@@ -74,13 +64,7 @@ export function FormPreview({ fields }: FormPreviewProps) {
             <div className="space-y-2 mt-2">
               {field.options?.map((option, index) => (
                 <label key={index} className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
-                  <input
-                    type="radio"
-                    name={field.id}
-                    value={option}
-                    required={field.required}
-                    className="text-blue-600 focus:ring-blue-500"
-                  />
+                  <input type="radio" name={field.id} value={option} required={field.required} className="text-blue-600 focus:ring-blue-500"/>
                   {option}
                 </label>
               ))}
@@ -92,11 +76,7 @@ export function FormPreview({ fields }: FormPreviewProps) {
         return (
           <div key={field.id} className="mb-4">
             <label className="flex items-center gap-2 text-sm text-gray-700 cursor-pointer">
-              <input
-                type="checkbox"
-                required={field.required}
-                className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-              />
+              <input type="checkbox" required={field.required} className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"/>
               {field.label}
               {field.required && <span className="text-red-500 ml-1">*</span>}
             </label>
@@ -110,7 +90,7 @@ export function FormPreview({ fields }: FormPreviewProps) {
 
   return (
     <div className="bg-background rounded-lg shadow-sm border p-6">
-      <h2 className="text-lg font-semibold mb-4">Form Preview</h2>
+      <h2 className="text-lg font-semibold mb-4">Form preview</h2>
       {fields.length === 0 ? (
         <p className="text-sm text-muted-foreground text-center py-8">Add fields to see the preview</p>
       ) : (
