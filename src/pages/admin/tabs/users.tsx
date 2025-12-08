@@ -16,7 +16,6 @@ import { ChevronDown, Ellipsis, Lock, Pencil, SlidersVertical, Trash, TriangleAl
 
 import { users, groups } from "@/config/data"
 import NewUser from "@/components/layout/newUser"
-import ClientComboBox from "@/components/mods/clientComboBox"
 
 const tabs = [{ name: 'Users', value: 'users' }, { name: 'Roles', value: 'roles' }, { name: 'Groups', value: 'groups' }]
 
@@ -28,6 +27,7 @@ export function UserManagement() {
       <h1 className="text-xl font-bold pb-4">User management</h1>
       <div className='w-full'>
         <Tabs defaultValue='users' className='gap-4'>
+
           {/* Tabs list */}
           <TabsList className='bg-background gap-2 p-0'>
             {tabs.map((tab) => (
@@ -36,6 +36,7 @@ export function UserManagement() {
               </TabsTrigger>
             ))}
           </TabsList>
+          
           {/* Users tab */}
           <TabsContent value={tabs[0].value}>
             <div className={'grid space-y-4'}>
@@ -172,9 +173,12 @@ export function UserManagement() {
                               <div className={'col-span-3'}>
                                 <FieldSet>
                                   <FieldGroup>
-                                    <Field><FieldLabel>Group name</FieldLabel><Input type={'text'} /></Field>
                                     <Field>
-                                      <ClientComboBox />
+                                      <FieldLabel>Group name</FieldLabel>
+                                      <Input
+                                        value={group.name}
+                                        type={'text'} 
+                                      />
                                     </Field>
                                   </FieldGroup>
                                 </FieldSet>

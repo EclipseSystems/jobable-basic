@@ -1,6 +1,11 @@
-import { Trash2, GripVertical, Plus, X } from 'lucide-react';
-import type { FormField } from '@/config/form.types';
 import { useState } from 'react';
+
+import { Button } from "@/components/ui/button"
+
+import { Trash2, GripVertical, Plus, X } from 'lucide-react';
+
+import type { FormField } from '@/config/form.types';
+import { Label } from '../ui/label';
 
 interface FormFieldItemProps {
   field: FormField;
@@ -62,14 +67,7 @@ export function FormFieldItem({ field, onUpdate, onRemove }: FormFieldItemProps)
                 </button>
               </div>
             </div>
-
-            <button
-              onClick={onRemove}
-              className="text-red-500 hover:text-red-700 hover:bg-red-50 p-2 rounded transition-colors"
-              title="Remove field"
-            >
-              <Trash2 size={18} />
-            </button>
+            <Button onClick={onRemove} variant="destructive" size={'icon-sm'}><Trash2/></Button>
           </div>
 
           {isEditing && (
@@ -83,8 +81,8 @@ export function FormFieldItem({ field, onUpdate, onRemove }: FormFieldItemProps)
               />
 
               {(field.type === 'select' || field.type === 'radio') && (
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-gray-700">Options:</label>
+                <div className="space-y-4">
+                  <Label>Options:</Label>
                   {field.options?.map((option, index) => (
                     <div key={index} className="flex items-center gap-2">
                       <input
@@ -94,22 +92,12 @@ export function FormFieldItem({ field, onUpdate, onRemove }: FormFieldItemProps)
                         className="flex-1 px-3 py-2 bg-white border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                         placeholder={`Option ${index + 1}`}
                       />
-                      <button
-                        onClick={() => handleRemoveOption(index)}
-                        className="text-red-500 hover:text-red-700 p-2"
-                        title="Remove option"
-                      >
-                        <X size={16} />
-                      </button>
+                      <Button onClick={() => handleRemoveOption(index)} variant="destructive" size={'icon-sm'}><X size={16} /></Button>
                     </div>
                   ))}
-                  <button
-                    onClick={handleAddOption}
-                    className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 font-medium"
-                  >
-                    <Plus size={16} />
-                    Add Option
-                  </button>
+                  <Button className={'flex text-blue-600 hover:text-blue-700'} onClick={handleAddOption} variant="ghost">
+                    <Plus size={16} />Add option
+                  </Button>
                 </div>
               )}
             </div>

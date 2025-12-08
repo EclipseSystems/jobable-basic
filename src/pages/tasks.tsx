@@ -2,32 +2,18 @@
 
 import { useState } from 'react'
 
-import { CheckCircle, Circle, CircleIcon, File, GripVertical, Paperclip, Pencil, Save, Trash, X, XCircle } from 'lucide-react'
+import { CheckCircle, Circle, CircleIcon, File, GripVertical, Paperclip, Pencil, Save, X, XCircle } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog'
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Field, FieldGroup, FieldLabel, FieldSet } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Table, TableBody, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Textarea } from '@/components/ui/textarea'
@@ -63,6 +49,9 @@ export default function Tasks() {
   const [taskVis, setTaskVis] = useState(false)
   const [taskDone, setTaskDone] = useState(false)
 
+  const [inputValue, setInputValue] = useState('');
+  const [checklist, setChecklist] = useState<{id: number, name: string}[]>([])
+
   const handleTaskVis = () => { setTaskVis(taskVis ? false : true) }
   function handleTaskDone(taskDone: boolean) {
     setTaskDone(taskDone)
@@ -89,16 +78,12 @@ export default function Tasks() {
       <PageTitle title={'Tasks'} padding={false} />
 
       {/* Test card */}
-      <Card className={'mb-4 py-6 w-100'}>
+      <Card className={'mb-4 w-100'}>
         <CardContent className={'grid space-y-4'}>
           <div className={'flex gap-2'}>
             <div className={'grid gap-2'}>
               <div className={'flex items-center gap-2'}>
-                <Checkbox
-                  className={'rounded-full size-5'}
-                  checked={taskDone}
-                  onCheckedChange={handleTaskDone}
-                />
+                <Checkbox className={'rounded-full size-5'} checked={taskDone} onCheckedChange={handleTaskDone}/>
                 <p className={`text-md ${taskDone ? 'line-through' : ''} font-semibold`}>Task</p>
               </div>
               <p className={'text-xs'}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae congue dui.</p>
@@ -180,32 +165,45 @@ export default function Tasks() {
                   </Select>
                 </Field>
               </div>
+
               {/* Due date */}
               <div className={'col-span-1 row-span-1 col-start-2 row-start-4'}><Field><FieldLabel>Due date</FieldLabel><DatePicker /></Field></div>
+
               {/* Tags */}
               <div className={'col-span-2 row-span-1 col-start-1 row-start-5'}><Field><FieldLabel>Tags</FieldLabel><MultipleSelector /></Field></div>
+
               {/* Checklist */}
               <div className={'col-span-1 row-span-5 col-start-3 row-start-1 border-l p-4 space-y-2'}>
                 <div className={'flex gap-2'}>
-                  <Input />
-                  <Button variant={'outline'} size={'icon'}><Save /></Button>
+                  <Input
+                    type={'text'}
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                  />
+                  <Button
+                    onClick={() => {
+                      setChecklist([...checklist, {id: checklist.length + 1, name: inputValue}])
+                      setInputValue('')
+                    }}
+                    variant={'outline'}
+                    size={'icon'}
+                  >
+                    <Save />
+                  </Button>
                 </div>
                 <ScrollArea className={'rounded-md border'}>
                   <div className={'flex flex-col gap-3 p-4'}>
-                    <div className={'flex gap-3'}>
+                    {checklist.map((item) => (
+                      <div key={item.id} className={'flex gap-3'}>
                       <Checkbox className={'rounded-lg'} />
-                      <Label>Checkbox 1</Label>
-                      <X size={18} className={'ml-auto text-red-500 cursor-pointer'} />
+                      <Label>{item.name}</Label>
+                      <X
+                        onClick={() => {setChecklist(checklist.filter(i => i.id !== item.id))}}
+                        size={18}
+                        className={'ml-auto text-red-500 cursor-pointer'}
+                      />
                     </div>
-                    <div className={'flex gap-3 items-center'}><Checkbox className={'rounded-lg'} /><Label>Checkbox 2</Label>
-                      <X size={18} className={'ml-auto text-red-500 cursor-pointer'} />
-                    </div>
-                    <div className={'flex gap-3 items-center'}><Checkbox className={'rounded-lg'} /><Label>Checkbox 3</Label>
-                      <X size={18} className={'ml-auto text-red-500 cursor-pointer'} />
-                    </div>
-                    <div className={'flex gap-3 items-center'}><Checkbox className={'rounded-lg'} /><Label>Checkbox 4</Label>
-                      <X size={18} className={'ml-auto text-red-500 cursor-pointer'} />
-                    </div>
+                    ))}
                   </div>
                 </ScrollArea>
               </div>

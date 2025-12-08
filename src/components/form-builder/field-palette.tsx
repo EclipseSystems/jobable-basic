@@ -34,7 +34,7 @@ export function FieldPalette() {
   };
 
   return (
-    <div className="bg-background rounded-lg shadow-sm border p-4">
+    <div className="bg-background rounded-lg border p-4">
       <h2 className="text-lg font-semibold mb-4">Form fields</h2>
       <div className="space-y-2">
         {fieldOptions.map((field) => (

@@ -89,7 +89,7 @@ export function FormPreview({ fields }: FormPreviewProps) {
   };
 
   return (
-    <div className="bg-background rounded-lg shadow-sm border p-6">
+    <div className="bg-background rounded-lg border p-6">
       <h2 className="text-lg font-semibold mb-4">Form preview</h2>
       {fields.length === 0 ? (
         <p className="text-sm text-muted-foreground text-center py-8">Add fields to see the preview</p>

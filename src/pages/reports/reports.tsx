@@ -16,9 +16,10 @@ import {
 import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 
-import { Download, Folder, Pencil, Plus } from "lucide-react"
+import { Download, Folder, Menu, Pencil, Plus, Star } from "lucide-react"
 
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
+import { Link } from "react-router"
 
 const chartConfig = {
   week4: { label: "4 week", color: "var(--chart-1)", },
@@ -38,14 +39,10 @@ const ccuData = [
 ]
 
 const treeData: TreeDataItem[] = [
-  {
-    id: '1',
-    name: 'IEA',
-    children: [
-      {
-        id: '2',
-        name: 'CCU Error Report'
-      }
+  { id: '1', name: 'Favourites' },
+  { id: '2', name: 'Shared with me' },
+  { id: '3', name: 'IEA', children: [
+      { id: '2', name: 'CCU Error Report' }
     ]
   }
 ]
@@ -64,21 +61,16 @@ export default function Reports() {
       <PageTitle title={'Reports'} padding={false} />
 
       <div className="flex gap-2 pb-4">
-        <TTButton title={"New report"} Icon={Plus} />
+        <Link to={'./builder'}>
+          <TTButton title={"New report"} Icon={Plus} />
+        </Link>
         <Dialog>
-          <DialogTrigger>
-            <TTButton title={"New folder"} Icon={Folder} />
-          </DialogTrigger>
+          <DialogTrigger><TTButton title={"New folder"} Icon={Folder} /></DialogTrigger>
           <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Create new folder</DialogTitle>
-            </DialogHeader>
+            <DialogHeader><DialogTitle>Create new folder</DialogTitle></DialogHeader>
             <FieldSet>
               <FieldGroup>
-                <Field>
-                  <FieldLabel htmlFor={'folderName'}>Folder name</FieldLabel>
-                  <Input type={'text'}/>
-                </Field>
+                <Field><FieldLabel htmlFor={'folderName'}>Folder name</FieldLabel><Input type={'text'} /></Field>
               </FieldGroup>
             </FieldSet>
             <DialogFooter>
@@ -89,7 +81,7 @@ export default function Reports() {
             </DialogFooter>
           </DialogContent>
         </Dialog>
-        
+
       </div>
 
       <div className="grid grid-cols-4 border rounded-lg size-full">
@@ -110,15 +102,10 @@ export default function Reports() {
                 <TTButton title={"Edit title"} Icon={Pencil} />
               </DialogTrigger>
               <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Edit report title</DialogTitle>
-                </DialogHeader>
+                <DialogHeader><DialogTitle>Edit report title</DialogTitle></DialogHeader>
                 <FieldSet>
                   <FieldGroup>
-                    <Field>
-                      <FieldLabel htmlFor="title">Title</FieldLabel>
-                      <Input id="title" type="text" />
-                    </Field>
+                    <Field><FieldLabel htmlFor="title">Title</FieldLabel><Input id="title" type="text" /></Field>
                   </FieldGroup>
                 </FieldSet>
                 <DialogFooter>
@@ -128,26 +115,27 @@ export default function Reports() {
               </DialogContent>
             </Dialog>
 
-            <TTButton title={'Export to PDF'} Icon={Download} />
+            <TTButton className={'ml-auto'} title={'Export to PDF'} Icon={Download} />
+            <TTButton title={'Add to favourites'} Icon={Star} />
+            <Button variant={'outline'} size={'icon'}><Menu/></Button>
           </div>
 
-          <ChartContainer
-            className="mt-4 h-140 w-full"
-            config={chartConfig}
-          >
-            <BarChart accessibilityLayer data={ccuData}>
-              <CartesianGrid vertical={false} />
-              <XAxis dataKey="month" />
-              <YAxis />
-              <ChartTooltip content={<ChartTooltipContent />} />
-              <ChartLegend content={<ChartLegendContent />} />
-              <Bar dataKey="week4" stackId="a" fill="var(--color-week4)" />
-              <Bar dataKey="week13" stackId="a" fill="var(--color-week13)" />
-              <Bar dataKey="week26" stackId="a" fill="var(--color-week26)" />
-              <Bar dataKey="week52" stackId="a" fill="var(--color-week52)" />
-              <Bar dataKey="ogs" stackId="a" fill="var(--color-ogs)" />
-            </BarChart>
-          </ChartContainer>
+          <div className={'size-full'}>
+            <ChartContainer config={chartConfig}>
+              <BarChart accessibilityLayer data={ccuData}>
+                <CartesianGrid vertical={false} />
+                <XAxis dataKey="month" />
+                <YAxis />
+                <ChartTooltip content={<ChartTooltipContent />} />
+                <ChartLegend content={<ChartLegendContent />} />
+                <Bar dataKey="week4" stackId="a" fill="var(--color-week4)" />
+                <Bar dataKey="week13" stackId="a" fill="var(--color-week13)" />
+                <Bar dataKey="week26" stackId="a" fill="var(--color-week26)" />
+                <Bar dataKey="week52" stackId="a" fill="var(--color-week52)" />
+                <Bar dataKey="ogs" stackId="a" fill="var(--color-ogs)" />
+              </BarChart>
+            </ChartContainer>
+          </div>
         </div>
       </div>
     </>

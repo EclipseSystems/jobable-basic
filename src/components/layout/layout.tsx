@@ -10,7 +10,6 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-  BreadcrumbEllipsis,
 } from "@/components/ui/breadcrumb"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu";
 import { SidebarProvider } from "../ui/sidebar";
@@ -50,13 +49,17 @@ export default function Layout() {
               <BreadcrumbItem>
                 <BreadcrumbLink href="/dashboard">Home</BreadcrumbLink>
               </BreadcrumbItem>
-              <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbLink href="/components">Components</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>{currentPage.pathname}</BreadcrumbPage>
+                <BreadcrumbPage>
+                  <div className={'flex items-center'}>
+                    {String(currentPage.pathname).split('/').map((page) => (
+                      <div className={'flex items-center'}>
+                        <BreadcrumbLink href={`/${page}`}>{page}</BreadcrumbLink>
+                        <BreadcrumbSeparator />
+                      </div>
+                    ))}
+                  </div>
+                </BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>

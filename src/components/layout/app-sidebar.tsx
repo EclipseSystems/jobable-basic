@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../ui/dropdown-menu'
 import { Dialog } from '../ui/dialog'
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '../ui/sidebar'
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem } from '../ui/sidebar'
 
 import { BarChart, Binoculars, Calendar, Globe, Home, ListChecks, Mail, Megaphone, MessageCircle, Phone, Plus, Settings, User, Users, type LucideIcon } from 'lucide-react'
 

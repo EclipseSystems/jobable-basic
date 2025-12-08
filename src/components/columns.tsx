@@ -63,7 +63,8 @@ export const contactColumns: ColumnDef<{
 }>[] = [
     { accessorKey: 'id', header: 'ID' },
     { accessorKey: 'name', header: 'Name' },
-    { accessorKey: 'organisation', header: 'Organisation' }
+    { accessorKey: 'organisation', header: 'Organisation' },
+    { accessorKey: 'role', header: 'Role'}
   ]
 
 export const leadsColumns: ColumnDef<{
@@ -94,16 +95,20 @@ export const leadsColumns: ColumnDef<{
 
 export const orgColumns: ColumnDef<{
   id: number
+  name: string  
   abn: string
-  name: string
   city: string
   state: string
   postcode: string
   mContact: string
 }>[] = [
     { accessorKey: 'id', header: 'ID' },
+    { accessorKey: 'name', header: 'Business name',
+      cell: ({row}) => {
+        return <div><Link to={{ pathname: './details' }}>{row.getValue('name')}</Link></div>
+      }
+    },    
     { accessorKey: 'abn', header: 'ABN' },
-    { accessorKey: 'name', header: 'Business name' },
     { accessorKey: 'city', header: 'City' },
     { accessorKey: 'state', header: 'State' },
     { accessorKey: 'postcode', header: 'Postcode' },

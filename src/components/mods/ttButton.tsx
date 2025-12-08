@@ -2,17 +2,15 @@ import type { LucideIcon } from "lucide-react"
 import { Button } from "../ui/button"
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip"
 
-export function TTButton({ title, Icon }: {
+export function TTButton({ title, Icon, className }: {
   title: string,
-  Icon: LucideIcon 
+  Icon: LucideIcon
+  className?: string
 }) {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button
-          variant="outline"
-          size="icon"
-        >
+        <Button className={className} variant="outline" size="icon">
           <Icon />
         </Button>
       </TooltipTrigger>
