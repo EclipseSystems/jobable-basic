@@ -9,13 +9,15 @@ import { Workflows } from "./tabs/workflows"
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
-import { Box, DollarSign, Flag, LayoutTemplate, Users, Workflow } from "lucide-react"
+import { Box, DollarSign, Flag, LayoutTemplate, Lock, Users, Workflow } from "lucide-react"
+import { Security } from "./tabs/security"
 
 const tabs = [
   { name: 'Branding', value: 'branding', element: Branding, icon: Flag},
   { name: 'Users', value: 'users', element: UserManagement, icon: Users },
   { name: 'Billing', value: 'billing', element: Billing, icon: DollarSign },
-  { name: 'Storage', value: 'storage', element: Storage, icon: Box },
+  { name: 'Storage', value: 'storage', element: Storage, icon: Box },  
+  { name: 'Security', value: 'security', element: Security, icon: Lock },
   { name: 'Templates', value: 'templates', element: Templates, icon: LayoutTemplate },
   { name: 'Workflows', value: 'workflows', element: Workflows, icon: Workflow }
 ]

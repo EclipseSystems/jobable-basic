@@ -36,7 +36,7 @@ export function Billing() {
 
       <div className={'text-left space-y-4'}>
         {/* Payment history */}
-        <div className={'text-md font-bold'}>Payment method</div>
+        <h2 className={'text-md font-bold'}>Payment method</h2>
         <div className={`grid grid-cols-${payDetails.length} w-full text-sm`}>
           {payDetails.map((detail) => (
             <div className={'block col-span-1'}>

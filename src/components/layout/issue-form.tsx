@@ -45,9 +45,7 @@ export function IssueForm({ formOpen, formOpenChange }:
               <Field>
                 <FieldLabel htmlFor={'category'}>Issue category</FieldLabel>
                 <Select>
-                  <SelectTrigger id={'category'}>
-                    <SelectValue placeholder={'Please select a category'} />
-                  </SelectTrigger>
+                  <SelectTrigger id={'category'}><SelectValue placeholder={'Please select a category'} /></SelectTrigger>
                   <SelectContent>
                     <SelectItem value={'loading'}>Pages don't load or are slow to load</SelectItem>
                     <SelectItem value={'data'}>Tables not showing data correctly</SelectItem>
@@ -59,14 +57,20 @@ export function IssueForm({ formOpen, formOpenChange }:
               <Field>
                 <FieldLabel htmlFor={'severity'}>Issue severity</FieldLabel>
                 <Select>
-                  <SelectTrigger id={'severity'}>
-                    <SelectValue placeholder={'Please select a severity level'} />
-                  </SelectTrigger>
+                  <SelectTrigger id={'severity'}><SelectValue placeholder={'Please select a severity level'} /></SelectTrigger>
                   <SelectContent>
-                    <SelectItem value={'critical'}><TriangleAlert /> Critical (1-8 hours)</SelectItem>
-                    <SelectItem value={'high'}><ArrowUp /> High (8-24 hours)</SelectItem>
-                    <SelectItem value={'medium'}><ArrowRight /> Medium (1-3 days)</SelectItem>
-                    <SelectItem value={'low'}><ArrowDown /> Low (3-7 days)</SelectItem>
+                    <SelectItem value={'critical'}>
+                      <TriangleAlert className={'text-red-500'} /> Critical (1-8 hours)
+                    </SelectItem>
+                    <SelectItem value={'high'}>
+                      <ArrowUp className={'text-orange-500'} /> High (8-24 hours)
+                    </SelectItem>
+                    <SelectItem value={'medium'}>
+                      <ArrowRight className={'text-yellow-500'} /> Medium (1-3 days)
+                    </SelectItem>
+                    <SelectItem value={'low'}>
+                      <ArrowDown className={'text-green-500'} /> Low (3-7 days)
+                      </SelectItem>
                   </SelectContent>
                 </Select>
               </Field>

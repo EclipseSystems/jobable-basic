@@ -8,7 +8,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
-import { TTButton } from "../ttButton"
+import { TTButton } from "../mods/ttButton"
 import { Bell } from "lucide-react"
 
 export function Notifications() {

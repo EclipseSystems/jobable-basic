@@ -1,5 +1,5 @@
 import { PageTitle } from "@/components/pageTitle"
-import { TTButton } from "@/components/ttButton"
+import { TTButton } from "@/components/mods/ttButton"
 import { TreeView, type TreeDataItem } from "@/components/tree-view"
 
 import { Button } from "@/components/ui/button"

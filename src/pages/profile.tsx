@@ -1,29 +1,14 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import {
-	Card,
-	CardContent,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
-import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
-} from "@/components/ui/select"
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableRow,
-} from "@/components/ui/table"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table"
 
 import { PageTitle } from "@/components/pageTitle";
 import { Key, Phone, QrCode, Save } from "lucide-react";
 import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field";
+import { ResetPassword } from "@/components/layout/resetPassword"
 
 const methods = [
 	{ icon: QrCode, name: 'Authenticator app', value: 'iPhone 15', status: 'Not enabled', button: 'Enable' },
@@ -66,7 +51,7 @@ export default function UserProfile() {
 						<CardContent className={'space-y-4'}>
 							<div className={'space-y-4'}>
 								<Label>Password</Label>
-								<Button>Reset your password</Button>
+								<ResetPassword />
 							</div>
 							<div>
 								<Label>Last changed</Label>

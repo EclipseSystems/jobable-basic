@@ -20,7 +20,7 @@ import { IssueForm } from "./issue-form";
 import { ModeToggle } from "../mode-toggle";
 import { Navbar } from "./navbar";
 import { Notifications } from "./notifications";
-import { TTButton } from "../ttButton";
+import { TTButton } from "../mods/ttButton";
 
 import { CircleQuestionMark, ListCheck } from "lucide-react";
 
